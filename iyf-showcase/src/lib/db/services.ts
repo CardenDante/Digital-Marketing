@@ -214,6 +214,7 @@ export const projectService = {
       SELECT 
         p.*, 
         s.name as student,
+        s.profileUrl as profileUrl,
         seas.name as season
       FROM projects p
       JOIN students s ON p.studentId = s.id
@@ -282,7 +283,7 @@ export const projectService = {
         project.url,
         project.githubUrl,
         project.category,
-        project.isFeatured ? 1 : 0,
+        project.isFeatured ? 1 : 0, // Convert boolean to integer here
         project.grade
       ]);
     }

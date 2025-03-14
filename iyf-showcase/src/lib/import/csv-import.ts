@@ -145,7 +145,7 @@ export const CsvImporter = {
           url: row.url,
           githubUrl: row.githubUrl || '',
           category: row.category || 'General',
-          isFeatured: row.isFeatured?.toLowerCase() === 'true',
+          isFeatured: row.isFeatured?.toLowerCase() === 'true', // Keep as boolean
           grade: row.grade || 'Not Graded'
         });
       }
