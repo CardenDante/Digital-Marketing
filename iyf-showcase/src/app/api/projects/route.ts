@@ -8,12 +8,14 @@ export async function GET(request: NextRequest) {
       const featured = searchParams.get('featured');
       const withStudentInfo = searchParams.get('withStudentInfo') === 'true';
       
+      console.log('API Request params:', { seasonId, featured, withStudentInfo });
+      
       if (withStudentInfo) {
-        // Enhanced project service method to get projects with student and season info
         const projects = await projectService.getWithStudentAndSeasonInfo(
           seasonId ? parseInt(seasonId) : undefined,
           featured === 'true' ? true : featured === 'false' ? false : undefined
         );
+        console.log('API Response projects count:', projects.length);
         return NextResponse.json(projects);
       } else {
         const projects = await projectService.getAll(

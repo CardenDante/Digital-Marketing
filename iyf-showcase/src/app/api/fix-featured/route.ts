@@ -1,26 +1,32 @@
-import { NextResponse } from 'next/server';
+// src/app/api/fix-featured/route.ts
+import { NextResponse, NextRequest } from 'next/server';
 import { getDb } from '@/lib/db/models';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const db = await getDb();
     
-    // First, reset all projects to non-featured
-    await db.run('UPDATE projects SET isFeatured = 0');
+    // Get the first 3 projects from season 3
+    const seasonProjects = await db.all('SELECT id FROM projects WHERE seasonId = 3 ORDER BY id LIMIT 3');
     
-    // Now set only the first 3 projects as featured
-    const ids = [1, 2, 3]; // Only the first 3 IDs
+    if (seasonProjects.length === 0) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'No projects found in season 3' 
+      });
+    }
     
-    for (const id of ids) {
-      await db.run('UPDATE projects SET isFeatured = 1 WHERE id = ?', [id]);
+    // Update these projects to be featured
+    for (const project of seasonProjects) {
+      await db.run('UPDATE projects SET isFeatured = 1 WHERE id = ?', [project.id]);
     }
     
     // Check if it worked
-    const featuredProjects = await db.all('SELECT * FROM projects WHERE isFeatured = 1');
+    const featuredProjects = await db.all('SELECT * FROM projects WHERE seasonId = 3 AND isFeatured = 1');
     
     return NextResponse.json({ 
       success: true, 
-      message: 'Featured projects updated - only first 3 projects are now featured', 
+      message: `Updated ${featuredProjects.length} featured projects for season 3`, 
       count: featuredProjects.length,
       projects: featuredProjects
     });
