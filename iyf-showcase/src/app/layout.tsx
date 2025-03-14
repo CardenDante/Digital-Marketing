@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github } from 'lucide-react';
+import { Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import ClarityScript from '../components/ClarityScript';
 import { SeasonProvider } from '@/lib/contexts/SeasonContext';
@@ -19,9 +19,9 @@ initDb().catch(error => {
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'IYF Academy - Programming Projects Showcase',
-  description: 'Explore innovative projects from IYF Free Weekend Academy. Discover web development, React, and JavaScript projects created by talented students.',
-  metadataBase: new URL('https://programming-iyf.harak-a.xyz'),
+  title: 'IYF Academy - Digital Marketing Showcase',
+  description: 'Explore innovative digital marketing campaigns from IYF Free Weekend Academy. Discover social media, SEO, content marketing, and analytics skills developed by talented students.',
+  metadataBase: new URL('https://marketing-iyf.harak-a.xyz'),
   alternates: {
     canonical: '/',
   },
@@ -46,11 +46,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
               "name": "IYF Academy",
-              "url": "https://programming-iyf.harak-a.xyz",
-              "description": "IYF Free Weekend Academy provides comprehensive programming education through weekend sessions.",
+              "url": "https://marketing-iyf.harak-a.xyz",
+              "description": "IYF Free Weekend Academy provides comprehensive digital marketing education through weekend sessions.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Developer Lane",
+                "streetAddress": "123 Marketing Avenue",
                 "addressLocality": "Nairobi",
                 "addressCountry": "Kenya"
               },
@@ -70,21 +70,21 @@ export default function RootLayout({
               "@type": "FAQPage",
               "mainEntity": [{
                 "@type": "Question",
-                "name": "What is IYF Academy?",
+                "name": "What is IYF Digital Marketing Academy?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "IYF Academy is a free weekend programming bootcamp based in Nairobi, Kenya, offering comprehensive web development training."
+                  "text": "IYF Digital Marketing Academy is a free weekend bootcamp based in Nairobi, Kenya, offering comprehensive digital marketing training across multiple channels including social media, SEO, content marketing, and analytics."
                 }
               }, {
                 "@type": "Question",
-                "name": "What technologies are taught?",
+                "name": "What skills are taught?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We teach modern web development technologies including React, Next.js, JavaScript, TypeScript, and full stack development."
+                  "text": "We teach modern digital marketing skills including SEO, social media marketing, content marketing, email marketing, analytics, paid advertising, and campaign development."
                 }
               }, {
                 "@type": "Question",
-                "name": "How can I join IYF Academy?",
+                "name": "How can I join IYF Digital Marketing Academy?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Visit our registration page at freeacademy.iyfkenya.org/register to apply for the next cohort."
@@ -119,33 +119,33 @@ export default function RootLayout({
                       <li>
                         <Link 
                           href="/" 
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
+                          className="text-sm text-gray-500 hover:text-purple-600 transition-colors"
                         >
                           Home
                         </Link>
                       </li>
                       <li>
                         <Link 
-                          href="/projects" 
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
+                          href="/campaigns" 
+                          className="text-sm text-gray-500 hover:text-purple-600 transition-colors"
                         >
-                          Projects
+                          Campaigns
                         </Link>
                       </li>
                       <li>
                         <Link 
                           href="/students" 
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
+                          className="text-sm text-gray-500 hover:text-purple-600 transition-colors"
                         >
                           Students
                         </Link>
                       </li>
                       <li>
                         <Link 
-                          href="/alumni" 
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
+                          href="/about" 
+                          className="text-sm text-gray-500 hover:text-purple-600 transition-colors"
                         >
-                          Alumni
+                          About
                         </Link>
                       </li>
                       <li>
@@ -153,9 +153,9 @@ export default function RootLayout({
                           href="https://freeacademy.iyfkenya.org/register" 
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
+                          className="text-sm text-gray-500 hover:text-purple-600 transition-colors"
                         >
-                          Join Us
+                          Apply Now
                         </a>
                       </li>
                     </ul>
@@ -164,10 +164,37 @@ export default function RootLayout({
                   {/* Social & Contact */}
                   <div className="flex items-center gap-4 mb-8">
                     <a 
-                      href="https://github.com/IYF-Programming-Class"
+                      href="#"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-600 transition-colors"
+                      className="text-gray-400 hover:text-purple-600 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                    <a 
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-purple-600 transition-colors"
+                      aria-label="Twitter"
+                    >
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                    <a 
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-purple-600 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                    <a 
+                      href="https://github.com/IYF-Marketing-Class"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-purple-600 transition-colors"
                       aria-label="GitHub"
                     >
                       <Github className="h-5 w-5" />

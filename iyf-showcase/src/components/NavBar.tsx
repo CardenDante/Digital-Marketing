@@ -47,21 +47,19 @@ const NavBar = () => {
             {/* Desktop Navigation - Centered */}
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
               <nav className="flex items-center space-x-8">
-                <Link href="/" className="text-sm font-medium text-gray-700 hover:text-green-600">
+                <Link href="/" className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
                   Home
                 </Link>
-                <Link href="/projects" className="text-sm font-medium text-gray-700 hover:text-green-600">
-                  Projects
+                <Link href="/campaigns" className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
+                  Campaigns
                 </Link>
-                <Link href="/students" className="text-sm font-medium text-gray-700 hover:text-green-600">
+                <Link href="/students" className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
                   Students
                 </Link>
-                <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-green-600">
+                <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors">
                   About
                 </Link>
-                <Link href="/alumni" className="text-sm font-medium text-gray-700 hover:text-green-600">
-                  Alumni
-                </Link>
+                
               </nav>
             </div>
 
@@ -71,7 +69,7 @@ const NavBar = () => {
                 <div className="relative">
                   <button 
                     onClick={() => setIsSeasonDropdownOpen(!isSeasonDropdownOpen)}
-                    className="flex items-center rounded-full border border-gray-300 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="flex items-center rounded-full border border-gray-300 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
                   >
                     Season {currentSeason?.name.replace('Season ', '') || '7'}
                     <ChevronDown className="ml-2 h-4 w-4 text-gray-400" />
@@ -88,7 +86,7 @@ const NavBar = () => {
                           <button
                             key={season.id}
                             onClick={(e) => handleSeasonChange(e, season.id)}
-                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors"
                             role="menuitem"
                           >
                             {season.name}
@@ -103,9 +101,9 @@ const NavBar = () => {
                 href="https://freeacademy.iyfkenya.org/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-green-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-green-700 transition-colors"
+                className="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-1.5 text-sm font-medium text-white hover:from-purple-700 hover:to-indigo-700 transition-all shadow-sm"
               >
-                Join Us
+                Apply Now
               </a>
             </div>
 
@@ -113,7 +111,7 @@ const NavBar = () => {
             <div className="flex md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-gray-900"
+                className="text-gray-700 hover:text-purple-600 transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -128,46 +126,39 @@ const NavBar = () => {
               {!isLoading && <div className="px-3 py-2"><SeasonSelector /></div>}
               <Link 
                 href="/" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
-                href="/projects" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
+                href="/campaigns" 
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Projects
+                Campaigns
               </Link>
               <Link 
                 href="/students" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Students
               </Link>
               <Link 
                 href="/about" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
-              </Link>
-              <Link 
-                href="/alumni" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Alumni
               </Link>
               <a
                 href="https://freeacademy.iyfkenya.org/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 px-3 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-full text-center"
+                className="mt-4 px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 rounded-full text-center shadow-sm"
               >
-                Join Us
+                Apply Now
               </a>
             </nav>
           </div>

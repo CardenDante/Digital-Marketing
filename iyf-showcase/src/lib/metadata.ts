@@ -1,23 +1,23 @@
-// src/lib/metadata.ts
 import type { Metadata } from 'next'
 
 export const siteConfig = {
-  name: 'IYF Academy - Programming Projects Showcase',
-  description: 'Explore innovative projects from Season 7 of IYF Free Weekend Academy. Discover web development, React, and JavaScript projects created by talented students.',
-  url: 'https://programming-iyf.harak-a.xyz',
-  ogImage: 'https://programming-iyf.harak-a.xyz/og.jpg',
+  name: 'IYF Academy - Digital Marketing Showcase',
+  description: 'Explore innovative digital marketing campaigns from IYF Free Weekend Academy. Discover SEO, social media, content marketing, and analytics campaigns created by talented students.',
+  url: 'https://marketing-iyf.harak-a.xyz',
+  ogImage: 'https://marketing-iyf.harak-a.xyz/og.jpg',
   twitterHandle: '@iyfacademy',
-  email: 'info@programming-iyf.harak-a.xyz',
+  email: 'info@marketing-iyf.harak-a.xyz',
   phone: '+254 700 000 000',
   address: {
-    street: '123 Developer Lane',
+    street: '123 Marketing Avenue',
     city: 'Nairobi',
     country: 'Kenya'
   },
   socialLinks: {
-    github: 'https://github.com/IYF-Programming-Class',
+    github: 'https://github.com/IYF-Marketing-Class',
     twitter: 'https://twitter.com/iyfacademy',
-    linkedin: 'https://linkedin.com/company/iyf-academy'
+    linkedin: 'https://linkedin.com/company/iyf-academy',
+    instagram: 'https://instagram.com/iyfacademy'
   }
 }
 
@@ -30,27 +30,28 @@ export const defaultMetadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     'IYF Academy',
-    'Programming Bootcamp',
-    'Web Development',
-    'Student Projects',
-    'Coding Bootcamp Kenya',
-    'React Projects',
-    'Next.js Projects',
-    'JavaScript Projects',
-    'TypeScript Projects',
-    'Frontend Development',
-    'Backend Development',
-    'Full Stack Development',
-    'Nairobi Coding School',
-    'React Portfolio Projects',
-    'Next.js Showcase Examples',
-    'JavaScript Project Gallery',
-    'Web Development Case Studies',
-    'Programming Project Showcase',
-    'Student Developer Portfolios',
-    'Coding Bootcamp Projects',
-    'Kenya Tech Education',
-    'Software Development Training'
+    'Digital Marketing Academy',
+    'Marketing Bootcamp',
+    'Digital Marketing Kenya',
+    'Student Campaigns',
+    'SEO Training',
+    'Social Media Marketing',
+    'Content Marketing',
+    'Email Marketing',
+    'Digital Analytics',
+    'Google Ads Training',
+    'Meta Ads Training',
+    'Digital Marketing Portfolio',
+    'Marketing Strategy',
+    'Campaign Management',
+    'Marketing ROI',
+    'Nairobi Marketing School',
+    'Digital Marketing Case Studies',
+    'Marketing Campaign Gallery',
+    'Student Marketer Portfolios',
+    'Digital Marketing Training',
+    'Kenya Marketing Education',
+    'Digital Campaign Showcase'
   ],
 
   metadataBase: new URL(siteConfig.url),
@@ -74,7 +75,7 @@ export const defaultMetadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'IYF Academy Projects Showcase',
+        alt: 'IYF Academy Digital Marketing Showcase',
       },
     ],
   },
@@ -100,30 +101,25 @@ export const defaultMetadata: Metadata = {
 export const generateMetadata = {
   home: (): Metadata => ({
     ...defaultMetadata,
-    title: 'Home | Student Projects Showcase',
+    title: 'Home | Digital Marketing Showcase',
   }),
   
-  projects: (): Metadata => ({
+  campaigns: (): Metadata => ({
     ...defaultMetadata,
-    title: 'Projects | Browse All Projects',
-    description: 'Browse through all projects created by IYF Academy Season 7 students',
+    title: 'Campaigns | Browse All Marketing Campaigns',
+    description: 'Browse through all digital marketing campaigns created by IYF Academy students',
   }),
 
   students: (): Metadata => ({
     ...defaultMetadata,
-    title: 'Students | Meet Our Developers',
-    description: 'Meet the talented students who created these amazing projects',
+    title: 'Students | Meet Our Digital Marketers',
+    description: 'Meet the talented students who created these impressive digital marketing campaigns',
   }),
 
   about: (): Metadata => ({
     ...defaultMetadata,
     title: 'About | Learn About IYF Academy',
-    description: 'Learn more about IYF Free Weekend Academy and our programming course',
+    description: 'Learn more about IYF Free Weekend Academy and our digital marketing courses',
   }),
-
-  project: (title: string): Metadata => ({
-    ...defaultMetadata,
-    title: `${title} | Project Details`,
-    description: `View details and live demo of ${title} project`,
-  }),
+  
 }

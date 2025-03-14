@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Crawl-delay: 10
-Host: programming-iyf.harak-a.xyz
+Host: marketing-iyf.harak-a.xyz
 
-Sitemap: https://programming-iyf.harak-a.xyz/sitemap.xml
+Sitemap: https://marketing-iyf.harak-a.xyz/sitemap.xml
