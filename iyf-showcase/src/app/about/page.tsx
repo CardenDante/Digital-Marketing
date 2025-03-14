@@ -146,7 +146,7 @@ const AboutPage = () => {
   };
   
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-700 py-20">
         <div className="absolute inset-0 opacity-20 bg-[url('/grid.svg')]"></div>
