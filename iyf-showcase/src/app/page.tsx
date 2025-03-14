@@ -110,13 +110,10 @@ const HomePage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* Hero Section */}
-      <section className="relative bg-green-600 min-h-[600px] flex items-center">
+       {/* Hero Section */}
+       <section className="relative bg-green-600 min-h-[600px] flex items-center">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="flex justify-center mb-4">
-            <SeasonSelector className="z-10" />
-          </div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Transforming Ideas Into
             <span className="block mt-2">Real-World Solutions</span>
@@ -128,6 +125,9 @@ const HomePage = () => {
               ${currentSeason?.name} of the IYF Free Weekend Academy programming course.`
             }
           </p>
+          <div className="mt-6 flex justify-center">
+            <SeasonSelector />
+          </div>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               href="/projects"

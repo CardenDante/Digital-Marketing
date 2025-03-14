@@ -1,15 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import SeasonSelector from './SeasonSelector';
 import { useSeasons } from '@/lib/contexts/SeasonContext';
 
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { isLoading } = useSeasons();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSeasonDropdownOpen, setIsSeasonDropdownOpen] = useState(false);
+  const { 
+    isLoading, 
+    seasons, 
+    currentSeason, 
+    setCurrentSeason 
+  } = useSeasons();
+
+  const handleSeasonChange = (event: React.MouseEvent, seasonId: number) => {
+    const selectedSeason = seasons.find(season => season.id === seasonId);
+    
+    if (selectedSeason) {
+      setCurrentSeason(selectedSeason);
+      setIsSeasonDropdownOpen(false);
+    }
+  };
 
   return (
     <header className="fixed w-full bg-white z-50">
@@ -47,15 +62,43 @@ const NavBar = () => {
                 <Link href="/alumni" className="text-sm font-medium text-gray-700 hover:text-green-600">
                   Alumni
                 </Link>
-                <Link href="/admin" className="text-sm font-medium text-gray-700 hover:text-green-600">
-                  Admin
-                </Link>
               </nav>
             </div>
 
             {/* Season Selector and Join Us Button - Desktop Only */}
             <div className="hidden md:flex items-center space-x-4">
-              {!isLoading && <SeasonSelector />}
+              {!isLoading && (
+                <div className="relative">
+                  <button 
+                    onClick={() => setIsSeasonDropdownOpen(!isSeasonDropdownOpen)}
+                    className="flex items-center rounded-full border border-gray-300 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  >
+                    Season {currentSeason?.name.replace('Season ', '') || '7'}
+                    <ChevronDown className="ml-2 h-4 w-4 text-gray-400" />
+                  </button>
+                  {isSeasonDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                      <div 
+                        className="py-1" 
+                        role="menu" 
+                        aria-orientation="vertical" 
+                        aria-labelledby="season-menu"
+                      >
+                        {seasons.map((season) => (
+                          <button
+                            key={season.id}
+                            onClick={(e) => handleSeasonChange(e, season.id)}
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            role="menuitem"
+                          >
+                            {season.name}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
               <a
                 href="https://freeacademy.iyfkenya.org/register"
                 target="_blank"
@@ -117,13 +160,6 @@ const NavBar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Alumni
-              </Link>
-              <Link 
-                href="/admin" 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Admin
               </Link>
               <a
                 href="https://freeacademy.iyfkenya.org/register"

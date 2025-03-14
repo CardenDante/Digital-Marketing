@@ -1,3 +1,4 @@
+// components/SeasonSelector.tsx
 'use client';
 
 import React from 'react';
@@ -22,8 +23,8 @@ const SeasonSelector: React.FC<SeasonSelectorProps> = ({ className = '' }) => {
 
   if (isLoading) {
     return (
-      <div className={`inline-flex items-center space-x-2 ${className}`}>
-        <div className="h-5 w-20 bg-gray-200 animate-pulse rounded"></div>
+      <div className={`inline-block ${className}`}>
+        <div className="h-10 w-32 bg-white/20 animate-pulse rounded-full"></div>
       </div>
     );
   }
@@ -33,19 +34,21 @@ const SeasonSelector: React.FC<SeasonSelectorProps> = ({ className = '' }) => {
   }
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative inline-block ${className}`}>
       <select
         value={currentSeason.id}
         onChange={handleChange}
-        className="appearance-none bg-green-500/10 rounded-full px-4 py-1.5 pr-8 text-sm font-semibold text-green-800 ring-1 ring-inset ring-green-600/20 focus:outline-none focus:ring-2 focus:ring-green-600"
+        className="appearance-none rounded-full bg-white/20 border border-white/30 px-6 py-2 pr-10 text-sm font-medium text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 hover:bg-white/30 transition-colors"
       >
         {seasons.map((season) => (
-          <option key={season.id} value={season.id}>
+          <option key={season.id} value={season.id} className="text-gray-900 bg-white">
             {season.name}
           </option>
         ))}
       </select>
-      <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-green-800 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+        <ChevronDown className="h-4 w-4 text-white" />
+      </div>
     </div>
   );
 };

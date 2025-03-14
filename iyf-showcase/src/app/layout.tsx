@@ -149,14 +149,6 @@ export default function RootLayout({
                         </Link>
                       </li>
                       <li>
-                        <Link 
-                          href="/admin" 
-                          className="text-sm text-gray-500 hover:text-green-600 transition-colors"
-                        >
-                          Admin
-                        </Link>
-                      </li>
-                      <li>
                         <a 
                           href="https://freeacademy.iyfkenya.org/register" 
                           target="_blank"
